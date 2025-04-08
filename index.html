@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" >
+        <div class="buttons">
+          <button class="btn" id="clear">AC</button>
+          <button class="btn" id="delete">C</button>
+          <button class="btn">/</button>
+          <button class="btn">7</button>
+          <button class="btn">8</button>
+          <button class="btn">9</button>
+          <button class="btn">*</button>
+          <button class="btn">4</button>
+          <button class="btn">5</button>
+          <button class="btn">6</button>
+          <button class="btn">-</button>
+          <button class="btn">1</button>
+          <button class="btn">2</button>
+          <button class="btn">3</button>
+          <button class="btn">+</button>
+          <button class="btn">0</button>
+          <button class="btn">.</button>
+          <button class="btn" id="equals" >=</button>
+        </div>
+      </div>
+      <style>
+        body{
+            background-color: black;
+        }
+        .calculator {
+  width: 300px;
+  margin: 0 auto;
+  border: 2px solid green;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#display {
+  width: 93%;
+  height: 50px;
+  font-size: 24px;
+  text-align: right;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: green;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  padding: 20px;
+  font-size: 18px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color:greenyellow;
+}
+
+      </style>
+      <script>
+//         let display = document.getElementById('display');
+// let buttons = Array.from(document.querySelectorAll('.btn'));
+
+// let currentInput = '';
+// let currentOperator = '';
+// let result = '';
+
+// buttons.forEach(button => {
+//   button.addEventListener('click', function () {
+//     let value = this.innerText;
+
+//     // Gestion des chiffres et des opérateurs
+//     if (value === "=") {
+//       try {
+//         result = eval(currentInput);  // Calculer l'expression
+//         display.value = result;
+//         currentInput = result;
+//       } catch (e) {
+//         display.value = "Erreur";
+//       }
+//     } else if (value === "AC") {
+//       currentInput = '';
+//       display.value = '';
+//     } else if (value === "C") {
+//       currentInput = currentInput.slice(0, -1); // Supprimer le dernier caractère
+//       display.value = currentInput;
+//     } else {
+//       currentInput += value;
+//       display.value = currentInput;
+//     }
+//   });
+// });
+let display = document.getElementById('display');
+let buttons = Array.from(document.querySelectorAll('.btn'));
+
+let currentInput = '';
+let currentOperator = '';
+let result = '';
+
+buttons.forEach(button => {
+  button.addEventListener('click', function () {
+    let value = this.innerText;
+
+    // Gestion des chiffres et des opérateurs
+    if (value === "=") {
+      try {
+        result = eval(currentInput);  // Calculer l'expression
+        display.value = result;
+        currentInput = result;
+      } catch (e) {
+        display.value = "Erreur";
+      }
+    } else if (value === "AC") {
+      currentInput = '';
+      display.value = '';
+    } else if (value === "C") {
+      currentInput = currentInput.slice(0, -1); // Supprimer le dernier caractère
+      display.value = currentInput;
+    } else {
+      currentInput += value;
+      display.value = currentInput;
+    }
+  });
+});
+      </script>
+</body>
+</html>
